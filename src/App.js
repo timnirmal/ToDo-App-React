@@ -4,10 +4,13 @@ import FilterButton from "./components/FilterButton";
 
 function App(props) {
     // Mapping Task List to Todo component
-    const tasklist = props.task.map(task => (<Todo key={task.id} id={task.id} name={task.name} completed={task.completed} />));
+    var tasklist = ""
+    if (props.task) {
+        tasklist = props.task.map(task => (<Todo key={task.id} id={task.id} name={task.name} completed={task.completed} />));
+    }
 
-    function addTask(name) {
-        alert(name);
+    function addTask(props) {
+        alert(props.name);
     }
 
     return (
@@ -22,7 +25,7 @@ function App(props) {
                 <FilterButton filter="completed" />
             </div>
             <h2 id="list-heading">
-                3 tasks remaining
+                {props.task.length} tasks remaining
             </h2>
             <ul
                 role="list"

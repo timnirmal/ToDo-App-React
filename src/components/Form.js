@@ -1,13 +1,22 @@
 import React from "react";
 
+function Form(props) {
+    const [form, setForm] = useState({
+        todo_item: "",
+    });
 
-
-function Form (props) {
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        props.addTask("say hello");
-        //console.log(e.target)
-    }
+        DATA.push({ id: "todo-" + DATA.length, name: form.todo_item, completed: false });
+        setForm({ todo_item: "" });
+    };
+
+    const updateForm = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value,
+        });
+    };
 
     return (
         <div>
@@ -21,8 +30,10 @@ function Form (props) {
                     type="text"
                     id="new-todo-input"
                     className="input input__lg"
-                    name="text"
+                    name="todo_item"
                     autoComplete="off"
+                    onChange={updateForm}
+                    value={form.todo_item}
                 />
                 <button type="submit" className="btn btn__primary btn__lg">
                     Add

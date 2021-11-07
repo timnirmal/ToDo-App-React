@@ -1,12 +1,14 @@
 import React from "react";
 
-function handleSubmit(e) {
-    e.preventDefault();
-    props.addTask("say hello");
-    //console.log(e.target)
-}
+
 
 function Form (props) {
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.addTask("say hello");
+        //console.log(e.target)
+    }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>

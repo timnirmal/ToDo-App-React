@@ -11,7 +11,6 @@ function Form(props) {
     e.preventDefault();
     DATA.push({ id: "todo-" + DATA.length, name: form.todo_item, completed: false });
     setForm({ todo_item: "" });
-    window.localStorage.setItem("todo", JSON.stringify(DATA));
   };
 
   const updateForm = (e) => {

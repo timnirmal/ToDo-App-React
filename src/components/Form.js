@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import DATA from "../data.json";
 
 function Form(props) {
   const [form, setForm] = useState({

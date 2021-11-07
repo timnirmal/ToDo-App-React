@@ -6,11 +6,15 @@ function App(props) {
     // Mapping Task List to Todo component
     const tasklist = props.task.map(task => (<Todo key={task.id} id={task.id} name={task.name} completed={task.completed} />));
 
+    function addTask(name) {
+        alert(name);
+    }
+
     return (
         <div className="todoapp stack-large">
             <h1>TodoMatic</h1>
 
-            <Form />
+            <Form addTask={addTask}/>
 
             <div className="filters btn-group stack-exception">
                 <FilterButton filter="all" />
